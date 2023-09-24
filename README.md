@@ -98,12 +98,14 @@ sorted_all_keyword_counts = count_all_keywords(beer_Wired_iStout_pre)
 #### [10. Gradio 시연](https://levelup.gitconnected.com/sharing-your-machine-learning-or-deep-learning-projects-with-users-with-gradio-10b42588a55d)
 ---
 ## 프로젝트 결과물 모음
+
 |No|내용|깃허브|
-|-|-|-|-|
+|-|-|-|
 |1|데이터 수집|[📂](https://github.com/sgr1118/Beer_Sentiment_anlysis/tree/main/Ratebeer_Crawling)|
 |2|데이터 라벨링|[📂](https://github.com/sgr1118/Beer_Sentiment_anlysis/tree/main/Data_labeling_test)|
 |3|모델링|[📂](https://github.com/sgr1118/Beer_Sentiment_anlysis/tree/main/Sentiment_analsis_result)|
 |4|결과|[📂](https://github.com/sgr1118/Beer_Sentiment_analysis/tree/main/Sentiment_prediction)|
+
 ---
 ## 프로젝트 개선 요구 사항
 
