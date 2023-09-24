@@ -21,38 +21,62 @@ python setup.py
 ### 모델 학습 [[colab]](https://colab.research.google.com/drive/1JhGI6jTBXHxkXtQKYtA__V0kQYu1mlTk#scrollTo=tuOrfo06qbsv)
 
 ``` c 
-# Load the model
-model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
-model = model.to('cuda')  # if GPU is available
+import torch
+from transformers import BertTokenizerFast, BertForSequenceClassification
+from torch.nn.functional import softmax
+import matplotlib.pyplot as plt
 
-# Initialize model
-model = BertForSequenceClassification.from_pretrained(
-    "bert-base-uncased", # Use the 12-layer BERT model, with an uncased vocab.
-    num_labels = 2, # The number of output labels--2 for binary classification.
-                    # You can increase this for multi-class tasks.
-    output_attentions = True, # Whether the model returns attentions weights.
-    output_hidden_states = True, # Whether the model returns all hidden-states.
-)
-model = model.to('cuda')  # if GPU is available
+# 모델 로드
+model = BertForSequenceClassification.from_pretrained('GiRak/beer-sentiment-bert') # HuggingFace 사전 학습 모델 업로드
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+model = model.to(device)
 
-# Initialize optimizer
-optimizer = AdamW(model.parameters(), lr=1e-5)
+# 토크나이저 초기화
+tokenizer = BertTokenizerFast.from_pretrained('GiRak/beer-sentiment-bert') # HuggingFace 사전 학습 모델 업로드
 
-# Training loop
-for epoch in range(3):  # number of epochs
-    model.train()
-    for batch in train_loader:
-        optimizer.zero_grad()
-        input_ids = batch['input_ids'].to('cuda')
-        attention_mask = batch['attention_mask'].to('cuda')
-        labels = batch['label'].to('cuda')
-        outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
-        loss = outputs.loss
-        loss.backward()
-        optimizer.step()
+def analyze_sentiment(sentence):
+    # 문장을 토크나이징하고 모델 입력으로 변환
+    inputs = tokenizer(sentence, return_tensors='pt')
+    inputs = inputs.to(device)
 
-# Save the model
-model.save_pretrained('sentiment_model_BERT')
+    # 모델을 통해 감정 분류 수행
+    outputs = model(**inputs)
+    logits = outputs.logits
+    probabilities = softmax(logits, dim=1)
+
+    # 감정 분류 확률 추출
+    sentiment_labels = ['Negative', 'Positive']
+    sentiment_probabilities = {label: probability.item() for label, probability in zip(sentiment_labels, probabilities[0])}
+
+    return sentiment_probabilities
+
+sentences = ['I took a sip and immediately discarded it. How could a beer have such a strong cinnamon flavor?']
+
+# Lists to store probabilities
+positive_probs = []
+negative_probs = []
+
+for sentence in sentences:
+    sentiment_probabilities = analyze_sentiment(sentence)
+    positive_prob = sentiment_probabilities['Positive'] * 100
+    negative_prob = sentiment_probabilities['Negative'] * 100
+
+    positive_probs.append(positive_prob)
+    negative_probs.append(negative_prob)
+
+    print("Sentence:", sentence)
+    print("Positive Probability:", int(positive_prob), "%")
+    print("Negative Probability:", int(negative_prob), "%")
+
+# Plotting
+x = ['Positive', 'Negative']
+
+plt.bar(x, [positive_probs[0], negative_probs[0]], color=['green', 'red'])
+plt.xlabel('Sentiment')
+plt.ylabel('Probability (%)')
+plt.title('Sentiment Analysis Result')
+plt.tight_layout()
+plt.show()
 ```
 
 ### 키워드 및 핵심 문구 추출
