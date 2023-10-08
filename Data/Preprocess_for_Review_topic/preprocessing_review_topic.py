@@ -68,15 +68,15 @@ selected_reviews.reset_index(drop=True, inplace=True)
 
 
 # 지정된 맥주 리뷰 데이터프레임 전처리 적용
-processed_reviews = selected_reviews.copy()
-processed_reviews['Review'] = processed_reviews['Review'].apply(lambda x: preprocess_sentence(x))
+pp_reviews = selected_reviews.copy()
+pp_reviews['Review'] = pp_reviews['Review'].apply(lambda x: preprocess_sentence(x))
 
 
 # # 전체 맥주 리뷰 데이터프레임 전처리 적용
-# processed_reviews = df.copy()
-# processed_reviews['Review'] = processed_reviews['Review'].apply(lambda x: preprocess_sentence(x))
+# pp_reviews = df.copy()
+# pp_reviews['Review'] = pp_reviews['Review'].apply(lambda x: preprocess_sentence(x))
 
 
 # 전처리된 데이터프레임 csv 파일 생성
-processed_reviews.to_csv('../Data/pp_selected_reviews.csv', index=False)
-processed_reviews.info()
+pp_reviews.to_csv('../Data/pp_selected_reviews.csv', index=False)
+pp_reviews.info()
