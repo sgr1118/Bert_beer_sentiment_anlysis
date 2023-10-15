@@ -16,7 +16,7 @@
 
 ## 사전 준비
 ``` c 
-!git clone https://github.com/sgr1118/Beer_Sentiment_analysis.git
+!git clone https://github.com/sgr1118/Bert_beer_sentiment_anlysis.git
 pip install -r requirements.txt
 ```
 
