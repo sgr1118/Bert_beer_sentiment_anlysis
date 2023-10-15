@@ -1,5 +1,5 @@
 # Project : Beer Sentiment Classifier and Keyphrase Extraction
-<img src="https://img.shields.io/badge/Python-3.8-blue"><img src="https://img.shields.io/badge/Pytorc%20Lhlightning-1.5.10-blue"><img src="https://img.shields.io/badge/Transformers-4.16.2-blue"><img src="https://img.shields.io/badge/-Colab-yellow)"><img src="https://img.shields.io/badge/Pytorch-blue">
+<img src="https://img.shields.io/badge/Python-3.8-blue"><img src="https://img.shields.io/badge/Transformers-4.16.2-blue"><img src="https://img.shields.io/badge/-Colab-yellow)"><img src="https://img.shields.io/badge/Pytorch-blue">
 
 ## 프로젝트 소개
 - 본 프로젝트는 리뷰 데이터 감정분석과 핵심 문구를 추출하는 방법입니다.
