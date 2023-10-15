@@ -18,7 +18,7 @@ python setup.py
 ```
 
 ## 사용법 예시
-### 모델 학습 [[colab]](https://colab.research.google.com/drive/1JhGI6jTBXHxkXtQKYtA__V0kQYu1mlTk#scrollTo=tuOrfo06qbsv)
+### Use to Pre_Trained_Model [[colab]](https://colab.research.google.com/drive/1JhGI6jTBXHxkXtQKYtA__V0kQYu1mlTk#scrollTo=tuOrfo06qbsv)
 
 ``` c 
 import torch
