@@ -13,8 +13,8 @@
 
 ## 사전 준비
 ``` c 
-python setup.py
 !git clone https://github.com/sgr1118/Beer_Sentiment_analysis.git
+pip install -r requirements.txt
 ```
 
 ## 사용법 예시
