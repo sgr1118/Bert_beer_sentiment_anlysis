@@ -125,11 +125,9 @@ sorted_all_keyword_counts = count_all_keywords(beer_Wired_iStout_pre)
 
 |No|내용|깃허브|
 |-|-|-|
-|1|데이터 수집|[📂](https://github.com/sgr1118/Beer_Sentiment_anlysis/tree/main/Ratebeer_Crawling)|
-|2|데이터 라벨링|[📂](https://github.com/sgr1118/Beer_Sentiment_anlysis/tree/main/Data_labeling_test)|
-|3|모델링|[📂](https://github.com/sgr1118/Beer_Sentiment_anlysis/tree/main/Sentiment_analsis_result)|
-|4|결과|[📂](https://github.com/sgr1118/Beer_Sentiment_analysis/tree/main/Sentiment_prediction)|
-
+|1|데이터 수집|[📂](https://github.com/sgr1118/Bert_beer_sentiment_anlysis/tree/main/Data)|
+|2|데이터 라벨링|[📂](https://github.com/sgr1118/Bert_beer_sentiment_anlysis/tree/main/Data/Data_labeling_test)|
+|3|파인 튜닝|[📂](https://github.com/sgr1118/Bert_beer_sentiment_anlysis/tree/main/Models/Step1_Bert_train)|
 ---
 ## 프로젝트 개선 요구 사항
 
