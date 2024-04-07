@@ -11,7 +11,7 @@ import time
 
 # 데이터셋 만들기
 
-df = pd.read_csv('/mnt/c/Users/GrSon/Desktop/sentiment_analysis/Bert_beer_sentiment_anlysis/Data/Preprocessed_data/preprocess.csv') # load to preprocess.csv
+df = pd.read_csv('../../Data/Preprocessed_data/Binary_Classification_v4.csv') # load to preprocess.csv
 
 def load_review_dataset(random_seed = 1,):
 # def load_review_dataset(random_seed = 1,):
